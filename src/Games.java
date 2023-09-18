@@ -31,7 +31,7 @@ public class Games {
               int  guessedNum = sc.nextInt();
               if(randomNumber == guessedNum){
                   out.println("Correct! " + guessedNum + " is the answer! Play again? [Y/N]" );
-              = sc.next("y");
+//              = sc.next("y");
 
               }
 
@@ -65,7 +65,8 @@ public class Games {
     public static void guessAColour(){
         out.println("Hi. Guess a colour!");
         Scanner sc = new Scanner(System.in);
-        String answer = Options.Colour.returnRandom().toString();
+//        String answer = Options.Colour.returnRandom().toString();
+        String answer = "pink";
         boolean solved = false;
 
         while (!solved){
@@ -76,6 +77,28 @@ public class Games {
                 String again = sc.next();
                 if (again.equalsIgnoreCase("y")){
                     guessAColour();
+                }
+            } else {
+                out.println("Wrong lol. Try Again!");
+            }
+        }
+    }
+
+    public static void guessAShape(){
+        out.println("What shape am I?");
+        Scanner sc = new Scanner(System.in);
+        Options.Shapes ans = Options.Shapes.returnRandom();
+        String answer = ans.toString();
+        boolean solved = false;
+        //"press h for hint". hint will tell number of sides
+        while (!solved){
+            String guess = sc.next();
+            if(guess.equalsIgnoreCase(answer)){
+                solved = true;
+                out.println("You've gotten it correct: "+ answer +". Would you like to go again? [Y/N]");
+                String again = sc.next();
+                if (again.equalsIgnoreCase("y")){
+                    guessAShape();
                 }
             } else {
                 out.println("Wrong lol. Try Again!");
