@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Options {
     public enum Colour{
         RED,
@@ -11,7 +13,14 @@ public class Options {
         BLACK,
         BROWN,
         GREY,
-        PURPLE
+        PURPLE;
+
+        static final Random rnd = new Random();
+
+        public static Colour returnRandom(){
+            Colour[] clr = values();
+            return clr[rnd.nextInt(clr.length)];
+        }
     }
     //animal
     //shape

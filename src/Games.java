@@ -61,4 +61,25 @@ public class Games {
 
 
     }
+
+    public static void guessAColour(){
+        out.println("Hi. Guess a colour!");
+        Scanner sc = new Scanner(System.in);
+        String answer = Options.Colour.returnRandom().toString();
+        boolean solved = false;
+
+        while (!solved){
+            String guess = sc.next();
+            if(guess.equalsIgnoreCase(answer)){
+                solved = true;
+                out.println("You've gotten it correct: "+ answer +". Would you like to go again? [Y/N]");
+                String again = sc.next();
+                if (again.equalsIgnoreCase("y")){
+                    guessAColour();
+                }
+            } else {
+                out.println("Wrong lol. Try Again!");
+            }
+        }
+    }
 }
