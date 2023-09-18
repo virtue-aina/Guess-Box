@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 import static java.lang.System.out;
 
+//implement hints for all games. 3x
 //maybe add saved history (FileReader like Nonogram. Create  [if none] and then update after every game)
 
 public class Main {
@@ -39,7 +40,7 @@ public class Main {
                 menu();
             }
             case "4" -> {
-                out.println("you picked 4");
+                Games.guessAShape();
                 menu();
             }
             case "5" -> {

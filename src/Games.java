@@ -29,7 +29,16 @@ public class Games extends Options {
         out.println(" Guess a number less than set limit ");
         // prompt 2
 
+
+              out.println(" Guess a number between zero and limit ");
+             // prompt 2
+              int  guessedNum = sc.nextInt();
+              if(randomNumber == guessedNum){
+                  out.println("Correct! " + guessedNum + " is the answer! Play again? [Y/N]" );
+//              = sc.next("y");
+
         while (proceed) {
+
 
             int guessedNum;
             //guessed number
@@ -90,6 +99,28 @@ public class Games extends Options {
                 String again = sc.next();
                 if (again.equalsIgnoreCase("y")){
                     guessAColour();
+                }
+            } else {
+                out.println("Wrong lol. Try Again!");
+            }
+        }
+    }
+
+    public static void guessAShape(){
+        out.println("What shape am I?");
+        Scanner sc = new Scanner(System.in);
+        Options.Shapes ans = Options.Shapes.returnRandom();
+        String answer = ans.toString();
+        boolean solved = false;
+        //"press h for hint". hint will tell number of sides
+        while (!solved){
+            String guess = sc.next();
+            if(guess.equalsIgnoreCase(answer)){
+                solved = true;
+                out.println("You've gotten it correct: "+ answer +". Would you like to go again? [Y/N]");
+                String again = sc.next();
+                if (again.equalsIgnoreCase("y")){
+                    guessAShape();
                 }
             } else {
                 out.println("Wrong lol. Try Again!");
