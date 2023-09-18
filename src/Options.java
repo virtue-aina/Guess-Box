@@ -1,6 +1,9 @@
 import java.util.Random;
-
 public class Options {
+
+
+
+
     public enum Colour{
         RED,
         ORANGE,
