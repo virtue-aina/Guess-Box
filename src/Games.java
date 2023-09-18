@@ -21,7 +21,7 @@ public class Games {
         //init for user-defined limit
 
         int randomNumber = rando.nextInt(limit);
-        //init for
+        //init for us
 
 
     }
