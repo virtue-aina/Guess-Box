@@ -1,28 +1,11 @@
-<<<<<<< HEAD
-//create menu. include "0 to exit"
-//add multiple games. maybe different kind of guessing scenarios
-//number game
-//color
-//animal
-//shapes
-//album of the year winner
-//quit at any point
-=======
-import java.util.Random;
 import java.util.Scanner;
 
 import static java.lang.System.out;
 
->>>>>>> dc0e5d4788658d26e1575d6e9a8bbc2d22d9c87f
 //maybe add saved history (FileReader like Nonogram. Create  [if none] and then update after every game)
 
 public class Main {
     public static void main(String[] args) {
-<<<<<<< HEAD
-         Games.guessANumber();
-    }
-
-=======
         menu();
     }
 
@@ -70,16 +53,4 @@ public class Main {
             }
         }
     }
-    public static void guessANumber() {
->>>>>>> dc0e5d4788658d26e1575d6e9a8bbc2d22d9c87f
-
 }
-
-
-
-// as long as input is below limit
-//accept input compare with correct answer
-//if wrong ask user to try again and start from the beginning
-// if user is correct congratulate user!
-
-
