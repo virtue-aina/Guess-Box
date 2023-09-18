@@ -4,6 +4,11 @@ import static java.lang.System.out;
 
 //create menu. include "0 to exit"
 //add multiple games. maybe different kind of guessing scenarios
+//number game
+//color
+//animal
+//shapes
+//album of the year winner
 //quit at any point
 //maybe add saved history (FileReader like Nonogram. Create  [if none] and then update after every game)
 
