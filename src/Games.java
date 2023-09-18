@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 import static java.lang.System.out;
 
-public class Games {
+public class Games extends Options {
 
 
     public static void guessANumber() {
@@ -14,7 +14,10 @@ public class Games {
         Random rando = new Random();
         // picks a random int within set limit
 
-        out.println("Hi, Please choose a limit to the numbers you want to guess, greater than zero ");
+        boolean proceed = true;
+        //runs game loop
+
+        out.println("Hi, Please choose a limit to the numbers you want to guess ");
         //prompt 1
 
         int limit = sc.nextInt();
@@ -23,8 +26,9 @@ public class Games {
         int randomNumber = rando.nextInt(limit);
         //sets random number within user-defined limit
 
-          if(randomNumber < limit && randomNumber > 0){
-         //checks if input is within limit (and above zero)
+        out.println(" Guess a number less than set limit ");
+        // prompt 2
+
 
               out.println(" Guess a number between zero and limit ");
              // prompt 2
@@ -33,34 +37,53 @@ public class Games {
                   out.println("Correct! " + guessedNum + " is the answer! Play again? [Y/N]" );
 //              = sc.next("y");
 
-              }
+        while (proceed) {
 
 
-              // check if random number is equal to guessed number
+            int guessedNum;
+            //guessed number
+            guessedNum = sc.nextInt();
 
+            if ((guessedNum >=0) && (guessedNum <= limit)) {
+                //checks if input is within limit
 
-          }
-          else{
+                    if (randomNumber == guessedNum) {
+                        // check if random number is equal to guessed number
 
-              out.println(" Please, use guess within the set limits ");
-              // throws error message and do not start
-          }
+                        out.println("Correct! " + guessedNum + " is the answer! Play again? [Y/N]");
+                        // prompt 3
 
+                        String restart = sc.next();
 
+                        //restarts game
+                        if (!restart.equalsIgnoreCase("Y")) {
+                            proceed = false;
+                        } else {
+                            guessANumber();
+                        }
+
+                    } else {
+                        out.println("Incorrect! Try again");
+
+                    }
+                }
+             else {
+
+                out.println(" Please, use guess within the set limits ");
+                // throws error message and do not start
+
+                guessANumber();
+                //restart
+            }
+
+        }
 
         //if so do-----
 
-        // if equal, congratulate
-        // check if wrong, if true ask to try again
         // if farther than answer,  cooler
         // if closer than answer, warmer
-        // ask if the player wants to play again only if game is won
-        // if player wants to restart ---- viable at any point.
-        // if player want to exit ------viable at any point
-
-
-
     }
+
 
     public static void guessAColour(){
         out.println("Hi. Guess a colour!");

@@ -8,6 +8,8 @@ import static java.lang.System.out;
 public class Main {
     public static void main(String[] args) {
         menu();
+       // Games.guessAColour();
+        //Games.guessANumber();
     }
 
     public static void menu(){
@@ -25,7 +27,8 @@ public class Main {
 
         switch (option) {
             case "1" -> {
-                out.println("you picked 1");
+                //out.println("you picked 1");
+                Games.guessANumber();
                 menu();
             }
             case "2" -> {
