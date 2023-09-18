@@ -1,11 +1,12 @@
 import java.util.Random;
 import java.util.Scanner;
-
 import static java.lang.System.out;
+
 //create menu. include "0 to exit"
 //add multiple games. maybe different kind of guessing scenarios
 //quit at any point
 //maybe add saved history (FileReader like Nonogram. Create  [if none] and then update after every game)
+
 public class Main {
     public static void main(String[] args) {
         guessANumber();
