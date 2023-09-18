@@ -28,7 +28,7 @@ public class Main {
                 menu();
             }
             case "2" -> {
-                out.println("you picked 2");
+                Games.guessAColour();
                 menu();
             }
             case "3" -> {
