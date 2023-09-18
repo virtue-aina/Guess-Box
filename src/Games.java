@@ -65,8 +65,7 @@ public class Games {
     public static void guessAColour(){
         out.println("Hi. Guess a colour!");
         Scanner sc = new Scanner(System.in);
-//        String answer = Options.Colour.returnRandom().toString();
-        String answer = "pink";
+        String answer = Options.Colour.returnRandom().toString();
         boolean solved = false;
 
         while (!solved){
