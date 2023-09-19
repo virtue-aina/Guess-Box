@@ -3,15 +3,13 @@ import java.util.Scanner;
 import static java.lang.System.out;
 
 //implement hints for all games. 3x
+//quit game(to menu) at any point. verification
 //maybe add saved history (FileReader like Nonogram. Create  [if none] and then update after every game)
 
 public class Main {
     public static void main(String[] args) {
         menu();
-       // Games.guessAColour();
-        //Games.guessANumber();
     }
-
     public static void menu(){
         out.println("--------------");
         out.println("Please select a game you'd like to play!");
@@ -27,7 +25,6 @@ public class Main {
 
         switch (option) {
             case "1" -> {
-                //out.println("you picked 1");
                 Games.guessANumber();
                 menu();
             }
