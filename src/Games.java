@@ -3,86 +3,46 @@ import java.util.Scanner;
 
 import static java.lang.System.out;
 
-public class Games extends Options {
+public class Games  {
 
 
     public static void guessANumber() {
 
-        Scanner sc = new Scanner(System.in);
-        //scanner takes input
+        Scanner sc = new Scanner(System.in);//scanner takes input
+        Random rando = new Random(); // picks a random int within set limit
+        boolean proceed = true;//runs game loop
 
-        Random rando = new Random();
-        // picks a random int within set limit
+            while (proceed) {
+                out.println("Hi, Please choose a limit to the numbers you want to guess: ");//prompt 1
+                int limit = sc.nextInt(); //init for user-defined limit
+                int randomNumber = rando.nextInt(limit); //sets random number within user-defined limit
 
-        boolean proceed = true;
-        //runs game loop
+                while(true) {
+                     out.println(" Guess a number less than set limit: "); // prompt 2
+                     int guessedNum = sc.nextInt();
 
-        out.println("Hi, Please choose a limit to the numbers you want to guess ");
-        //prompt 1
-
-        int limit = sc.nextInt();
-        //init for user-defined limit
-
-        int randomNumber = rando.nextInt(limit);
-        //sets random number within user-defined limit
-
-        out.println(" Guess a number less than set limit ");
-        // prompt 2
-
-
-              out.println(" Guess a number between zero and limit ");
-             // prompt 2
-              int  guessedNum = sc.nextInt();
-              if(randomNumber == guessedNum){
-                  out.println("Correct! " + guessedNum + " is the answer! Play again? [Y/N]" );
-//              = sc.next("y");
-
-        while (proceed) {
-
-
-            int guessedNum;
-            //guessed number
-            guessedNum = sc.nextInt();
-
-            if ((guessedNum >=0) && (guessedNum <= limit)) {
-                //checks if input is within limit
-
-                    if (randomNumber == guessedNum) {
-                        // check if random number is equal to guessed number
-
-                        out.println("Correct! " + guessedNum + " is the answer! Play again? [Y/N]");
-                        // prompt 3
-
-                        String restart = sc.next();
-
-                        //restarts game
-                        if (!restart.equalsIgnoreCase("Y")) {
-                            proceed = false;
-                        } else {
-                            guessANumber();
-                        }
-
-                    } else {
-                        out.println("Incorrect! Try again");
-
-                    }
-                }
-             else {
-
-                out.println(" Please, use guess within the set limits ");
-                // throws error message and do not start
-
-                guessANumber();
-                //restart
+                     if (guessedNum <= limit) { //checks if input is within limit
+                         if (randomNumber == guessedNum) {// check if random number is equal to guessed number
+                             out.println("Correct! " + guessedNum + " is the answer! Play again? [Y/N]:"); // prompt 3
+                             String restart = sc.next();//restarts game
+                             if (!restart.equalsIgnoreCase("Y")) {
+                                 proceed = false;
+                                 break;
+                             } else {
+                                guessANumber();//restart
+                             }
+                         } else {
+                             out.println("Incorrect! Try again");
+                         }
+                     } else {
+                         out.println(" Please, use guess within the set limits ");// throws error message and do not start
+                     }
+                 }
             }
 
         }
 
-        //if so do-----
-
-        // if farther than answer,  cooler
-        // if closer than answer, warmer
-    }
+    public static  void guessAnAnimal(){}
 
 
     public static void guessAColour(){

@@ -26,6 +26,42 @@ public class Options {
         }
     }
     //animal
+    public enum Animal{
+        DOG("",""),
+        CAT("",""),
+        COW("",""),
+        SNAKE("",""),
+        LION("",""),
+        PANTHER("",""),
+        PARROT("",""),
+        HAMSTER("",""),
+        TIGER("",""),
+        FROG("",""),
+        LIZARD("",""),
+        CHIMPANZEE("",""),
+        BEAR("",""),
+        CHICKEN("",""),
+        RACOON("",""),
+        SHARK("",""),
+        GOLDFISH("","");
+
+
+        final String type;
+        final String kingdom;
+
+        Animal(String type, String kingdom){
+            this.type = type;
+            this.kingdom = kingdom;
+        }
+
+
+    }
+
+
+
+
+
+
     //shape
     public enum Shapes{
         TRIANGLE (3),
