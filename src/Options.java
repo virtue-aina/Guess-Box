@@ -1,23 +1,28 @@
 import java.util.Random;
 public class Options {
-
-
-
-
     public enum Colour{
-        RED,
-        ORANGE,
-        YELLOW,
-        GREEN,
-        BLUE,
-        INDIGO,
-        VIOLET,
-        WHITE,
-        BLACK,
-        BROWN,
-        GREY,
-        PURPLE;
+        RED ("Primary"),
+        ORANGE("Secondary"),
+        YELLOW("Primary"),
+        GREEN("Secondary"),
+        BLUE("Primary"),
+        INDIGO("Shady"),
+        VIOLET("Secondary"),
+        WHITE("Elementary"),
+        BLACK("Elementary"),
+        BROWN("Composite"),
+        GREY("Shady"),
+        PURPLE("Secondary");
 
+        final String properties;
+
+        Colour(String properties){
+            this.properties = properties;
+        }
+
+        String getProperties(){
+            return properties;
+        }
         static final Random rnd = new Random();
 
         public static Colour returnRandom(){
@@ -56,12 +61,6 @@ public class Options {
 
 
     }
-
-
-
-
-
-
     //shape
     public enum Shapes{
         TRIANGLE (3),
