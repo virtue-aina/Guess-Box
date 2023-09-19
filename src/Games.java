@@ -42,7 +42,7 @@ public class Games  {
 
         }
 
-
+    public static  void guessAnAnimal(){}
 
 
     public static void guessAColour(){
