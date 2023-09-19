@@ -27,30 +27,38 @@ public class Options {
     }
     //animal
     public enum Animal{
-        DOG("",""),
-        CAT("",""),
-        COW("",""),
-        SNAKE("",""),
-        LION("",""),
-        PANTHER("",""),
-        PARROT("",""),
-        HAMSTER("",""),
-        TIGER("",""),
-        FROG("",""),
-        LIZARD("",""),
-        CHIMPANZEE("",""),
-        BEAR("",""),
-        CHICKEN("",""),
-        RACOON("",""),
-        SHARK("",""),
-        GOLDFISH("","");
+        DOG("vertebrae"),
+        CAT("vertebrae"),
+        COW("vertebrae"),
+        SNAKE("vertebrae"),
+        LION("vertebrae"),
+        PANTHER("vertebrae"),
+        PARROT("vertebrae"),
+        HAMSTER("vertebrae"),
+        TIGER("vertebrates"),
+        FROG("vertebrates"),
+        LIZARD("vertebrates"),
+        CHIMPANZEE("vertebrates"),
+        BEAR("vertebrates"),
+        CHICKEN("vertebrates"),
+        RACOON("vertebrates"),
+        SHARK("vertebrates"),
+        GOLDFISH("vertebrates"),
+        OCTOPUS("invertebrates"),
+        SCORPION("invertebrates"),
+        ANT("invertebrates"),
+        MILLIPEDE("invertebrates"),
+        STINGRAY("invertebrates"),
+        LEECH("invertebrates"),
+        STARFISH("invertebrates"),
+        SNAIL("invertebrates");
 
 
-        final String type;
+
         final String kingdom;
 
-        Animal(String type, String kingdom){
-            this.type = type;
+        Animal( String kingdom){
+
             this.kingdom = kingdom;
         }
 
