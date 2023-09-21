@@ -69,7 +69,7 @@ public class Games  {
                     out.println("Wrong lol. Try Again!");
                 }
             }
-            }
+        }
     }
     public static void guessAShape(){
         out.println("What shape am I?");
@@ -95,6 +95,50 @@ public class Games  {
                     out.println("The shape has "+ ans.getSides() + " sides");
                 } else {
                     out.println("Wrong lol. Try Again!");
+                }
+            }
+        }
+    }
+    public static void guessAnAlbum(){
+        out.println("Guess the album of the year winner");
+        Scanner sc = new Scanner(System.in);
+        Options.Album ans = Options.Album.returnRandom();
+        String answer = ans.toString();
+        boolean solved = false;
+
+        out.println("Firstly, guess the artist");
+
+        while (!solved){
+            String artistName = sc.nextLine();
+            if (quitGame(artistName)){//quit condition
+                solved = true;
+            }else if (!artistName.equalsIgnoreCase("q")){
+                if(artistName.equalsIgnoreCase(ans.artistName)){ //check if artist is correct
+
+                    out.println("Correct. Now guess which "+ans.artistName+" album it is");
+                    while (!solved){
+                        String album = sc.nextLine();
+                        if (quitGame(album)){// quit condition
+                            solved = true;
+                        }else if (!album.equalsIgnoreCase("q")) {
+                            if(album.equalsIgnoreCase(ans.albumName)){ //check if album name is correct
+                                solved = true;
+                                out.println("Correct Answer! "+ answer +". Would you like to go again? [Y/N]");
+                                String again = sc.next();
+                                if (again.equalsIgnoreCase("y")){
+                                    guessAnAlbum();
+                                }
+                            }else if(album.equalsIgnoreCase("h")){
+                                out.println("Hint: The album was in the "+ans.decade+"'s");
+                            }else {
+                                out.println("Incorrect Album. Try Again!");
+                            }
+                        }
+                    }
+                }else if (artistName.equalsIgnoreCase("h")){
+                    out.println("Hint: The artist is a "+ans.category);
+                }else {
+                    out.println("Wrong Artist. Try Again!");
                 }
             }
         }
