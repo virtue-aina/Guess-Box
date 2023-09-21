@@ -37,19 +37,11 @@ public class Games  {
                 }
             }
         }
-<<<<<<< HEAD
+
 
         System.out.println("Thanks for playing!");
     }
 
-
-
-
-
-
-
-=======
->>>>>>> d26fc19bc1ff58543b0c4331565f67ea27a33cfb
     public static  void guessAnAnimal(){}
     public static void guessAColour(){
         out.println("Hi. Guess a colour!");

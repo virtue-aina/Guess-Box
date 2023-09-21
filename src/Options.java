@@ -32,41 +32,48 @@ public class Options {
     }
     //animal
     public enum Animal{
-        DOG("vertebrae"),
-        CAT("vertebrae"),
-        COW("vertebrae"),
-        SNAKE("vertebrae"),
-        LION("vertebrae"),
-        PANTHER("vertebrae"),
-        PARROT("vertebrae"),
-        HAMSTER("vertebrae"),
-        TIGER("vertebrates"),
-        FROG("vertebrates"),
-        LIZARD("vertebrates"),
-        CHIMPANZEE("vertebrates"),
-        BEAR("vertebrates"),
-        CHICKEN("vertebrates"),
-        RACOON("vertebrates"),
-        SHARK("vertebrates"),
-        GOLDFISH("vertebrates"),
-        OCTOPUS("invertebrates"),
-        SCORPION("invertebrates"),
-        ANT("invertebrates"),
-        MILLIPEDE("invertebrates"),
-        STINGRAY("invertebrates"),
-        LEECH("invertebrates"),
-        STARFISH("invertebrates"),
-        SNAIL("invertebrates");
+        HORSE("vertebrae", "gallops"),
+        CAT("vertebrae","stretches"),
+        SNAKE("vertebrae","slithers"),
+        PARROT("vertebrae","flies"),
+        HUMAN("vertebrae","walks"),
+        MONKEY("vertebrates","climbs"),
+        FROG("vertebrates","leaps"),
+        BULL("vertebrates","charges"),
+        APE("vertebrates","swings"),
+        BEAR("vertebrates","lumbers"),
+        HEN("vertebrates","struts"),
+        SHARK("vertebrates","swims"),
+        OCTOPUS("invertebrates","swims backwards"),
+        ANT("invertebrates","crawls"),
+        STINGRAY("invertebrates","propels"),
+        LEECH("invertebrates","loops"),
+        SNAIL("invertebrates","glides");
 
 
 
         final String kingdom;
+        final String movement;
 
-        Animal( String kingdom){
+        Animal(String kingdom,String movement){
 
             this.kingdom = kingdom;
+            this.movement = movement;
         }
 
+
+        String getKingdom(){
+            return kingdom;
+        }
+        String getMovement(){
+            return movement;
+        }
+
+        public static final Random rando = new Random();
+        public static Animal returnRand(){
+            Animal[] animal = values();
+
+        }
 
     }
     //shape
