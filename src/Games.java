@@ -7,42 +7,95 @@ public class Games  {
     public static void guessANumber() {
         Scanner sc = new Scanner(System.in);
         Random rando = new Random();
+
         boolean proceed = true;
 
         while (proceed) {
-            System.out.println("Hi, Please choose a limit for the numbers you want to guess: ");
+            System.out.print("Enter the upper limit for guessing: ");
             int limit = sc.nextInt();
+            int randomNumber = rando.nextInt(limit + 1);
 
-            int randomNumber = rando.nextInt(limit);
+            boolean guessedCorrectly = false;
+            int guessedNum = 0; // Declare guessedNum outside the if block
 
-            while (true) {
-                System.out.println("Guess a number from 0 to " + limit + ": ");
-                int guessedNum = sc.nextInt();
+            while (!guessedCorrectly) {
+                System.out.print("Guess a number from 0 to " + limit + ": ");
 
-                if (guessedNum <= limit) {
-                    if (randomNumber == guessedNum) {
-                        System.out.println("Correct! " + guessedNum + " is the answer! Play again? [Y/N]:");
-                        String restart = sc.next();
-                        if (restart.equalsIgnoreCase("N")) {
-                            proceed = false;
-                        } else if (!restart.equalsIgnoreCase("Y")) {
-                            System.out.println("Invalid input. Please enter 'Y' to play again or 'N' to quit.");
-                        }
-                        break; // Exit the inner loop
+                if (sc.hasNextInt()) {
+                    guessedNum = sc.nextInt(); // Update guessedNum inside the if block
+
+                    if (guessedNum < 0 || guessedNum > limit) {
+                        System.out.println("Please guess within the set limits.");
+                    } else if (guessedNum == randomNumber) {
+                        System.out.println("Correct! " + guessedNum + " is the answer.");
+                        guessedCorrectly = true;
                     } else {
                         System.out.println("Incorrect! Try again.");
                     }
                 } else {
-                    System.out.println("Please guess a number within the set limits.");
+                    // Handle non-integer input (e.g., if user enters 'h')
+                    String input = sc.next();
+                    if (input.equalsIgnoreCase("h")) {
+                        if (randomNumber < guessedNum) {
+                            System.out.println("Hint: The number is smaller than " + guessedNum);
+                        } else {
+                            System.out.println("Hint: The number is greater than " + guessedNum);
+                        }
+                    } else {
+                        System.out.println("Invalid input. Please enter a number or 'h' for a hint.");
+                    }
                 }
             }
-        }
 
+            System.out.print("Play again? (Y/N): ");
+            String restart = sc.next();
+            if (!restart.equalsIgnoreCase("Y")) {
+                proceed = false;
+            }
+        }
 
         System.out.println("Thanks for playing!");
     }
 
-    public static  void guessAnAnimal(){}
+
+
+
+
+    public static  void guessAnAnimal(){
+        out.println("Guess any Animal!");
+        Scanner aniScan = new Scanner(System.in);
+        Options.Animal randomGuessAnimal = Options.Animal.returnRand();
+        String animalGuess = randomGuessAnimal.toString();
+        boolean isLost = true;
+
+        while (isLost) {
+            String guessedAnimal = aniScan.next();
+            // Check if the player wants to quit
+            if (quitGame(guessedAnimal)) {
+                isLost = false;
+            }
+            // Check if the player guessed the correct animal
+            else if (guessedAnimal.equalsIgnoreCase(animalGuess)) {
+                isLost = false;
+                System.out.println("Correct! the animal is: " + guessedAnimal + " ,Would you like to go again? [Y/N]");
+                String anotherTry = aniScan.next();
+                if (anotherTry.equalsIgnoreCase("y")) {
+                    guessAnAnimal(); // Recursive call to play again
+                }
+            }
+            // Check if the player asks for a hint
+            else if (guessedAnimal.equalsIgnoreCase("h")) {
+                System.out.println("Hint: The animal is a.an " + randomGuessAnimal.getKingdom() + " and it " + randomGuessAnimal.getMovement());
+            }
+            // If none of the above conditions match, it's an incorrect guess
+            else {
+                System.out.println("Wrong answer, please Try Again!");
+            }
+        }
+
+    }
+
+
     public static void guessAColour(){
         out.println("Hi. Guess a colour!");
         Scanner sc = new Scanner(System.in);
@@ -53,7 +106,7 @@ public class Games  {
         while (!solved){
             String guess = sc.next();
             if (quitGame(guess)){
-                solved = true;
+               solved = true;
             } else if (!guess.equalsIgnoreCase("q")){
                 if(guess.equalsIgnoreCase(answer)){
                     solved = true;

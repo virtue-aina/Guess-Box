@@ -55,7 +55,7 @@ public class Options {
         final String kingdom;
         final String movement;
 
-        Animal(String kingdom,String movement){
+        Animal( String kingdom,String movement){
 
             this.kingdom = kingdom;
             this.movement = movement;
@@ -70,10 +70,14 @@ public class Options {
         }
 
         public static final Random rando = new Random();
-//        public static Animal returnRand(){
-//            Animal[] animal = values();
-//
-//        }
+        public static Animal returnRand(){
+            Animal[] animals = values();
+            return animals[rando.nextInt(animals.length)];
+
+        }
+
+
+
 
     }
     //shape

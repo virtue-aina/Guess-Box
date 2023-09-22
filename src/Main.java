@@ -31,7 +31,7 @@ public class Main {
                 menu();
             }
             case "3" -> {
-                out.println("you picked 3");
+                Games.guessAnAnimal();
                 menu();
             }
             case "4" -> {
