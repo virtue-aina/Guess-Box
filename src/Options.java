@@ -32,32 +32,51 @@ public class Options {
     }
     //animal
     public enum Animal{
-        DOG("",""),
-        CAT("",""),
-        COW("",""),
-        SNAKE("",""),
-        LION("",""),
-        PANTHER("",""),
-        PARROT("",""),
-        HAMSTER("",""),
-        TIGER("",""),
-        FROG("",""),
-        LIZARD("",""),
-        CHIMPANZEE("",""),
-        BEAR("",""),
-        CHICKEN("",""),
-        RACOON("",""),
-        SHARK("",""),
-        GOLDFISH("","");
+        HORSE("vertebrae", "gallops"),
+        CAT("vertebrae","stretches"),
+        SNAKE("vertebrae","slithers"),
+        PARROT("vertebrae","flies"),
+        HUMAN("vertebrae","walks"),
+        MONKEY("vertebrates","climbs"),
+        FROG("vertebrates","leaps"),
+        BULL("vertebrates","charges"),
+        APE("vertebrates","swings"),
+        BEAR("vertebrates","lumbers"),
+        HEN("vertebrates","struts"),
+        SHARK("vertebrates","swims"),
+        OCTOPUS("invertebrates","swims backwards"),
+        ANT("invertebrates","crawls"),
+        STINGRAY("invertebrates","propels"),
+        LEECH("invertebrates","loops"),
+        SNAIL("invertebrates","glides");
 
 
-        final String type;
+
         final String kingdom;
+        final String movement;
 
-        Animal(String type, String kingdom){
-            this.type = type;
+        Animal( String kingdom,String movement){
+
             this.kingdom = kingdom;
+            this.movement = movement;
         }
+
+
+        String getKingdom(){
+            return kingdom;
+        }
+        String getMovement(){
+            return movement;
+        }
+
+        public static final Random rando = new Random();
+        public static Animal returnRand(){
+            Animal[] animals = values();
+            return animals[rando.nextInt(animals.length)];
+
+        }
+
+
 
 
     }
