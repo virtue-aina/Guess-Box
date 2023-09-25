@@ -7,23 +7,23 @@ public class Games  {
     public static void guessANumber() {
         Scanner sc = new Scanner(System.in);
         Random rando = new Random();
-
         boolean proceed = true;
+        int guessedNum = 0; // Declare guessedNum
 
         while (proceed) {
-            System.out.print("Enter the upper limit for guessing: ");
+            System.out.print("Enter a limit for guessing: ");
             int limit = sc.nextInt();
             int randomNumber = rando.nextInt(limit + 1);
-
             boolean guessedCorrectly = false;
-            int guessedNum = 0; // Declare guessedNum outside the if block
 
             while (!guessedCorrectly) {
                 System.out.print("Guess a number from 0 to " + limit + ": ");
-
+                //Handle quitting game
+                if (quitGame(sc.next())) {
+                   proceed = false;
+                }
                 if (sc.hasNextInt()) {
                     guessedNum = sc.nextInt(); // Update guessedNum inside the if block
-
                     if (guessedNum < 0 || guessedNum > limit) {
                         System.out.println("Please guess within the set limits.");
                     } else if (guessedNum == randomNumber) {
@@ -33,34 +33,27 @@ public class Games  {
                         System.out.println("Incorrect! Try again.");
                     }
                 } else {
-                    // Handle non-integer input (e.g., if user enters 'h')
+                    // Handle non-integer input (if user enters 'h')
                     String input = sc.next();
                     if (input.equalsIgnoreCase("h")) {
-                        if (randomNumber < guessedNum) {
-                            System.out.println("Hint: The number is smaller than " + guessedNum);
+                        if (randomNumber  % 2 == 0) {
+                            System.out.println("Hint: The number is even ");
                         } else {
-                            System.out.println("Hint: The number is greater than " + guessedNum);
+                            System.out.println("Hint: The number is odd ");
                         }
                     } else {
                         System.out.println("Invalid input. Please enter a number or 'h' for a hint.");
                     }
                 }
             }
-
             System.out.print("Play again? (Y/N): ");
             String restart = sc.next();
             if (!restart.equalsIgnoreCase("Y")) {
                 proceed = false;
             }
         }
-
         System.out.println("Thanks for playing!");
     }
-
-
-
-
-
     public static  void guessAnAnimal(){
         out.println("Guess any Animal!");
         Scanner aniScan = new Scanner(System.in);
@@ -74,6 +67,7 @@ public class Games  {
             if (quitGame(guessedAnimal)) {
                 isLost = false;
             }
+
             // Check if the player guessed the correct animal
             else if (guessedAnimal.equalsIgnoreCase(animalGuess)) {
                 isLost = false;
@@ -85,8 +79,12 @@ public class Games  {
             }
             // Check if the player asks for a hint
             else if (guessedAnimal.equalsIgnoreCase("h")) {
-                System.out.println("Hint: The animal is a.an " + randomGuessAnimal.getKingdom() + " and it " + randomGuessAnimal.getMovement());
+                //Handles article for the kingdom String
+                String kingdom = randomGuessAnimal.getKingdom().equalsIgnoreCase("Invertebrate" ) ? "an " : "a ";
+
+                System.out.println("Hint: The animal is " + kingdom + randomGuessAnimal.getKingdom() + " and it " + randomGuessAnimal.getMovement());
             }
+
             // If none of the above conditions match, it's an incorrect guess
             else {
                 System.out.println("Wrong answer, please Try Again!");
@@ -94,8 +92,6 @@ public class Games  {
         }
 
     }
-
-
     public static void guessAColour(){
         out.println("Hi. Guess a colour!");
         Scanner sc = new Scanner(System.in);
@@ -184,7 +180,7 @@ public class Games  {
                             }else if(album.equalsIgnoreCase("h")){
                                 out.println("Hint: The album was in the "+ans.decade+"'s");
                             }else {
-                                out.println("Incorrect Album. Try Again!");
+                                out.println( "Incorrect Album. Try Again!");
                             }
                         }
                     }
@@ -211,4 +207,9 @@ public class Games  {
         }
         return quit;
     }
+
+
+
+
 }
+
