@@ -1,4 +1,5 @@
 import java.util.Random;
+
 public class Options {
     public enum Colour{
         RED ("Primary"),
@@ -32,11 +33,11 @@ public class Options {
     }
     //animal
     public enum Animal{
-        HORSE("vertebrae", "gallops"),
-        CAT("vertebrae","stretches"),
-        SNAKE("vertebrae","slithers"),
-        PARROT("vertebrae","flies"),
-        HUMAN("vertebrae","walks"),
+        HORSE("vertebrates", "gallops"),
+        CAT("vertebrates","stretches"),
+        SNAKE("vertebrates","slithers"),
+        PARROT("vertebrates","flies"),
+        HUMAN("vertebrates","walks"),
         MONKEY("vertebrates","climbs"),
         FROG("vertebrates","leaps"),
         BULL("vertebrates","charges"),
@@ -164,5 +165,31 @@ public class Options {
         }
         //grouping
         //decade
+
+
+
+
     }
+
+    /*
+declare data structure
+    private static LinkedList<Integer> factorsList = new LinkedList<>();
+    private static  void hintFactors(int guessNum){
+        int i;
+        for (i = 1; i <= guessNum; i++) {
+            if (guessNum % i == 0) {
+                factorsList.add(i);//store values in list
+            }
+        }
+        if (!factorsList.isEmpty()) {
+            Random rand = new Random();
+            int randomIndex = rand.nextInt(factorsList.size());
+            int randomFactor = factorsList.remove(randomIndex);
+            System.out.println("Here's a factor, for ya: " + randomFactor);
+        }else{
+            System.out.println("No more Hints!");
+            factorsList.clear();
+        }
+    }
+*/
 }
