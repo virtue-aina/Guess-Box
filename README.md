@@ -27,13 +27,13 @@ A collection of guessing games played on the java terminal.
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/virtue-aina/Guess-Box
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd Guess-Box
 ```
 
 Run the Main.Java file
