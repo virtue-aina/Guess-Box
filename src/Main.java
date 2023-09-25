@@ -2,9 +2,8 @@ import java.util.Scanner;
 
 import static java.lang.System.out;
 
-//maybe add saved history (FileReader like Nonogram. Create  [if none] and then update after every game)
-
 public class Main {
+    static String intro = "h - get a hint \nq - quit a game";
     public static void main(String[] args) {
         menu();
     }
@@ -23,22 +22,27 @@ public class Main {
 
         switch (option) {
             case "1" -> {
+                out.println(intro);
                 Games.guessANumber();
                 menu();
             }
             case "2" -> {
+                out.println(intro);
                 Games.guessAColour();
                 menu();
             }
             case "3" -> {
+                out.println(intro);
                 Games.guessAnAnimal();
                 menu();
             }
             case "4" -> {
+                out.println(intro);
                 Games.guessAShape();
                 menu();
             }
             case "5" -> {
+                out.println(intro);
                 Games.guessAnAlbum();
                 menu();
             }

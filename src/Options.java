@@ -31,7 +31,6 @@ public class Options {
             return clr[rnd.nextInt(clr.length)];
         }
     }
-    //animal
     public enum Animal{
         HORSE("vertebrates", "gallops"),
         CAT("vertebrates","stretches"),
@@ -81,7 +80,6 @@ public class Options {
 
 
     }
-    //shape
     public enum Shapes{
         TRIANGLE (3),
         SQUARE (4),
@@ -112,7 +110,6 @@ public class Options {
             return sides;
         }
     }
-    //album of the year
     public enum Album{
         W010("Taylor Swift", "Fearless", 2010, 2010, "Female"),
         W011("Arcade Fire", "The Suburbs", 2011, 2010, "Group"),

@@ -207,9 +207,6 @@ public class Games  {
         }
         return quit;
     }
-
-
-
-
+    //lower limit for number guessing game
+    //maybe add saved history (FileReader like Nonogram. Create  [if none] and then update after every game)
 }
-
